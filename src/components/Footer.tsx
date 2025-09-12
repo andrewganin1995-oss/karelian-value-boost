@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -19,6 +19,18 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary" />
                 <a href="mailto:info@appraisal-karelia.ru" className="hover:text-primary transition-colors">
                   info@appraisal-karelia.ru
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-muted-foreground">
+                <MessageCircle className="w-5 h-5 text-primary" />
+                <a href="https://t.me/appraisal_karelia" className="hover:text-primary transition-colors">
+                  Telegram
+                </a>
+              </div>
+              <div className="flex items-center space-x-3 text-muted-foreground">
+                <MessageCircle className="w-5 h-5 text-primary" />
+                <a href="https://wa.me/78142123456" className="hover:text-primary transition-colors">
+                  WhatsApp
                 </a>
               </div>
               <div className="flex items-start space-x-3 text-muted-foreground">

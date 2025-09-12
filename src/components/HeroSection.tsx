@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { useScrollToForm } from "@/hooks/useScrollToForm";
+import { useState } from "react";
+import Calculator from "@/components/Calculator";
 
 const HeroSection = () => {
   const scrollToForm = useScrollToForm();
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   
   return (
-    <section className="min-h-screen bg-gradient-hero flex items-center justify-center px-4">
+    <>
+      <Calculator 
+        isOpen={isCalculatorOpen} 
+        onClose={() => setIsCalculatorOpen(false)}
+        onGetConsultation={() => {
+          setIsCalculatorOpen(false);
+          scrollToForm();
+        }}
+      />
+      <section className="min-h-screen bg-gradient-hero flex items-center justify-center px-4">
       <div className="container max-w-6xl mx-auto text-center">
         <div className="space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -32,7 +44,7 @@ const HeroSection = () => {
               variant="ghost" 
               size="lg" 
               className="px-8 py-4 text-lg"
-              onClick={scrollToForm}
+              onClick={() => setIsCalculatorOpen(true)}
             >
               Узнать стоимость
             </Button>
@@ -55,6 +67,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

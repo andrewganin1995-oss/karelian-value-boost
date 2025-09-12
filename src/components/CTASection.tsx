@@ -1,11 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { useScrollToForm } from "@/hooks/useScrollToForm";
+import { useState } from "react";
+import Calculator from "@/components/Calculator";
 
 const CTASection = () => {
   const scrollToForm = useScrollToForm();
+  const [isCalculatorOpen, setIsCalculatorOpen] = useState(false);
   
   return (
-    <section className="py-20 bg-gradient-primary">
+    <>
+      <Calculator 
+        isOpen={isCalculatorOpen} 
+        onClose={() => setIsCalculatorOpen(false)}
+        onGetConsultation={() => {
+          setIsCalculatorOpen(false);
+          scrollToForm();
+        }}
+      />
+      <section className="py-20 bg-gradient-primary">
       <div className="container max-w-4xl mx-auto px-4 text-center">
         <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
           Готовы снизить налоги на недвижимость?
@@ -27,7 +39,7 @@ const CTASection = () => {
             variant="outline" 
             size="lg" 
             className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-primary"
-            onClick={scrollToForm}
+            onClick={() => setIsCalculatorOpen(true)}
           >
             Рассчитать экономию
           </Button>
@@ -48,6 +60,7 @@ const CTASection = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

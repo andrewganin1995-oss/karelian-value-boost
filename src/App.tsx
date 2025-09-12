@@ -3,22 +3,17 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useScrollToForm } from "@/hooks/useScrollToForm";
 import Preloader from "@/components/Preloader";
-import PopupModal from "@/components/PopupModal";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  const scrollToForm = useScrollToForm();
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Preloader />
-        <PopupModal onScrollToForm={scrollToForm} />
         <Toaster />
         <Sonner />
         <BrowserRouter>
