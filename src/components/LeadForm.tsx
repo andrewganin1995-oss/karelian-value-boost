@@ -26,7 +26,7 @@ const LeadForm = () => {
   };
 
   return (
-    <section className="py-20 bg-card">
+    <section id="lead-form" className="py-20 bg-gradient-section">
       <div className="container max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -37,41 +37,41 @@ const LeadForm = () => {
           </p>
         </div>
         
-        <div className="bg-background p-8 rounded-lg shadow-card max-w-2xl mx-auto">
+        <div className="bg-background p-8 rounded-2xl shadow-elegant max-w-2xl mx-auto border border-primary/10 transition-smooth hover:shadow-primary/20">
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="space-y-2">
-              <Label htmlFor="name">Имя и фамилия *</Label>
+            <div className="space-y-3">
+              <Label htmlFor="name" className="text-foreground font-medium">Имя и фамилия *</Label>
               <Input
                 id="name"
                 type="text"
-                placeholder="Введите ваше имя"
+                placeholder="Например: Иван Петров"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="h-12"
+                className="h-14 rounded-xl border-border bg-card/50 backdrop-blur-sm focus:border-primary focus:ring-primary/20 focus:bg-card transition-all duration-300 placeholder:text-muted-foreground/70"
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="contact">Телефон или email *</Label>
+            <div className="space-y-3">
+              <Label htmlFor="contact" className="text-foreground font-medium">Телефон или email *</Label>
               <Input
                 id="contact"
                 type="text"
-                placeholder="+7 (999) 123-45-67 или email@example.com"
+                placeholder="Например: +7 (921) 123-45-67"
                 value={formData.contact}
                 onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
                 required
-                className="h-12"
+                className="h-14 rounded-xl border-border bg-card/50 backdrop-blur-sm focus:border-primary focus:ring-primary/20 focus:bg-card transition-all duration-300 placeholder:text-muted-foreground/70"
               />
             </div>
             
-            <div className="space-y-2">
-              <Label htmlFor="purpose">Цель обращения</Label>
+            <div className="space-y-3">
+              <Label htmlFor="purpose" className="text-foreground font-medium">Цель обращения</Label>
               <Select value={formData.purpose} onValueChange={(value) => setFormData({ ...formData, purpose: value })}>
-                <SelectTrigger className="h-12">
-                  <SelectValue placeholder="Выберите цель обращения" />
+                <SelectTrigger className="h-14 rounded-xl border-border bg-card/50 backdrop-blur-sm focus:border-primary focus:ring-primary/20 transition-all duration-300">
+                  <SelectValue placeholder="Выберите подходящий вариант" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="rounded-xl border-border bg-background/95 backdrop-blur-sm">
                   <SelectItem value="cadastral-dispute">Оспаривание кадастровой стоимости</SelectItem>
                   <SelectItem value="property-valuation">Независимая оценка недвижимости</SelectItem>
                   <SelectItem value="tax-optimization">Консультация по налоговой оптимизации</SelectItem>
@@ -81,13 +81,15 @@ const LeadForm = () => {
               </Select>
             </div>
             
-            <Button type="submit" variant="hero" size="lg" className="w-full h-12 text-lg">
-              Получить бесплатную консультацию
-            </Button>
+            <div className="pt-4">
+              <Button type="submit" variant="hero" size="lg" className="w-full h-14 text-lg rounded-xl font-semibold hover:scale-105 transition-all duration-300">
+                Получить бесплатную консультацию
+              </Button>
+            </div>
             
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-muted-foreground text-center pt-2">
               Нажимая кнопку, вы соглашаетесь с{" "}
-              <a href="#" className="text-primary hover:underline">
+              <a href="#" className="text-primary hover:underline transition-colors">
                 политикой конфиденциальности
               </a>
             </p>

@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useScrollToForm } from "@/hooks/useScrollToForm";
 
 const HeroSection = () => {
+  const scrollToForm = useScrollToForm();
+  
   return (
     <section className="min-h-screen bg-gradient-hero flex items-center justify-center px-4">
       <div className="container max-w-6xl mx-auto text-center">
@@ -17,10 +20,20 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button variant="hero" size="lg" className="px-8 py-4 text-lg">
+            <Button 
+              variant="hero" 
+              size="lg" 
+              className="px-8 py-4 text-lg"
+              onClick={scrollToForm}
+            >
               Получить консультацию
             </Button>
-            <Button variant="ghost" size="lg" className="px-8 py-4 text-lg">
+            <Button 
+              variant="ghost" 
+              size="lg" 
+              className="px-8 py-4 text-lg"
+              onClick={scrollToForm}
+            >
               Узнать стоимость
             </Button>
           </div>

@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useScrollToForm } from "@/hooks/useScrollToForm";
 
 const CTASection = () => {
+  const scrollToForm = useScrollToForm();
+  
   return (
     <section className="py-20 bg-gradient-primary">
       <div className="container max-w-4xl mx-auto px-4 text-center">
@@ -12,10 +15,20 @@ const CTASection = () => {
           кадастровую стоимость вашего объекта
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button variant="secondary" size="lg" className="px-8 py-4 text-lg bg-white text-primary hover:bg-white/90">
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            className="px-8 py-4 text-lg bg-white text-primary hover:bg-white/90"
+            onClick={scrollToForm}
+          >
             Бесплатная консультация
           </Button>
-          <Button variant="outline" size="lg" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-primary">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-primary"
+            onClick={scrollToForm}
+          >
             Рассчитать экономию
           </Button>
         </div>
