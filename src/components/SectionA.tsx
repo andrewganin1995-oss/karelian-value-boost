@@ -29,7 +29,7 @@ const SectionA = () => {
             <div className="mb-4">
               <CheckCircle className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">98% успешных дел</h3>
+            <h3 className="text-2xl font-semibold mb-4">100% успешных дел</h3>
             <p className="text-muted-foreground">
               Высокий процент успешного оспаривания кадастровой стоимости благодаря опыту и профессионализму
             </p>

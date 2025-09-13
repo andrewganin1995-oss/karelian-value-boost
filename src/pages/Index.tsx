@@ -1,6 +1,8 @@
 import HeroSection from "@/components/HeroSection";
 import SectionA from "@/components/SectionA";
 import SectionB from "@/components/SectionB";
+import PriceList from "@/components/PriceList";
+import DiscountSection from "@/components/DiscountSection";
 import CTASection from "@/components/CTASection";
 import LeadForm from "@/components/LeadForm";
 import TestimonialsSection from "@/components/TestimonialsSection";
@@ -13,6 +15,8 @@ const Index = () => {
       <HeroSection />
       <SectionA />
       <SectionB />
+      <PriceList />
+      <DiscountSection />
       <CTASection />
       <LeadForm />
       <TestimonialsSection />
