@@ -78,19 +78,15 @@ const PriceList = () => {
             <table className="w-full">
               <thead className="bg-primary text-primary-foreground">
                 <tr>
-                  <th className="px-6 py-4 text-left font-semibold">Тип имущества</th>
-                  <th className="px-6 py-4 text-left font-semibold">Количество объектов</th>
-                  <th className="px-6 py-4 text-left font-semibold">Стоимость услуг (₽)</th>
-                  <th className="px-6 py-4 text-left font-semibold">Сроки выполнения (дни)</th>
+                  <th className="px-6 py-4 text-left font-semibold">Услуга</th>
+                  <th className="px-6 py-4 text-left font-semibold">Цена</th>
                 </tr>
               </thead>
               <tbody>
                 {priceData.map((item, index) => (
                   <tr key={index} className={index % 2 === 0 ? "bg-background" : "bg-muted/30"}>
                     <td className="px-6 py-4 font-medium">{item.type}</td>
-                    <td className="px-6 py-4 text-muted-foreground">{item.quantity}</td>
                     <td className="px-6 py-4 text-primary font-semibold">{item.price}</td>
-                    <td className="px-6 py-4 text-muted-foreground">{item.timeline}</td>
                   </tr>
                 ))}
               </tbody>

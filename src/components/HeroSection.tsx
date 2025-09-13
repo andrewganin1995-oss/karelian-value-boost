@@ -23,6 +23,14 @@ const HeroSection = () => {
             <Button 
               variant="hero" 
               size="lg" 
+              className="px-8 py-4 text-lg mr-4"
+              onClick={scrollToForm}
+            >
+              Рассчитать стоимость
+            </Button>
+            <Button 
+              variant="hero" 
+              size="lg" 
               className="px-8 py-4 text-lg"
               onClick={scrollToForm}
             >

@@ -1,72 +1,13 @@
 import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { useState } from "react";
-import ServiceModal from "@/components/ServiceModal";
+import ServiceModal, { serviceData } from "@/components/ServiceModal";
 
 const Footer = () => {
   const [selectedService, setSelectedService] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const services = {
-    cadastral: {
-      title: "Оспаривание кадастровой стоимости",
-      description: "Профессиональное снижение кадастровой стоимости недвижимости через судебные инстанции. Наша команда имеет многолетний опыт успешного ведения дел по оспариванию завышенной кадастровой стоимости.",
-      features: [
-        "Анализ документов и перспектив дела",
-        "Проведение независимой оценки объекта",
-        "Подготовка пакета документов для суда",
-        "Представительство в судебных инстанциях",
-        "Получение нового кадастрового паспорта",
-        "Сопровождение до полного завершения дела"
-      ],
-      price: "от 15 000 ₽",
-      duration: "2-6 месяцев"
-    },
-    valuation: {
-      title: "Независимая оценка недвижимости",
-      description: "Профессиональная оценка рыночной стоимости недвижимости с выдачей официального отчета, соответствующего всем требованиям законодательства РФ.",
-      features: [
-        "Выезд оценщика на объект",
-        "Фотофиксация состояния объекта",
-        "Анализ рыночных данных",
-        "Применение трех подходов к оценке",
-        "Подготовка отчета об оценке",
-        "Консультации по результатам оценки"
-      ],
-      price: "от 5 000 ₽",
-      duration: "3-5 дней"
-    },
-    court: {
-      title: "Судебное сопровождение",
-      description: "Полное юридическое сопровождение дел по спорам о недвижимости в судах всех инстанций. Защита ваших интересов на всех этапах судебного процесса.",
-      features: [
-        "Подготовка процессуальных документов",
-        "Участие в судебных заседаниях",
-        "Работа с экспертами и свидетелями",
-        "Обжалование неблагоприятных решений",
-        "Исполнение судебных решений",
-        "Консультации на всех этапах процесса"
-      ],
-      price: "от 25 000 ₽",
-      duration: "индивидуально"
-    },
-    consultation: {
-      title: "Консультации по налогообложению",
-      description: "Экспертные консультации по вопросам налогообложения недвижимости, оптимизации налоговых платежей и использованию льгот.",
-      features: [
-        "Анализ налоговой нагрузки",
-        "Поиск возможностей оптимизации",
-        "Консультации по льготам",
-        "Помощь в общении с налоговой",
-        "Разработка стратегии снижения налогов",
-        "Постоянная поддержка по налоговым вопросам"
-      ],
-      price: "от 3 000 ₽",
-      duration: "1-2 дня"
-    }
-  };
-
   const handleServiceClick = (serviceKey: string) => {
-    setSelectedService(services[serviceKey as keyof typeof services]);
+    setSelectedService(serviceData[serviceKey as keyof typeof serviceData]);
     setIsModalOpen(true);
   };
 
@@ -96,15 +37,27 @@ const Footer = () => {
                     ocenka2440@gmail.com
                   </a>
                 </div>
-                <div className="flex items-center space-x-3 text-muted-foreground">
-                  <MessageCircle className="w-5 h-5 text-primary" />
-                  <a href="https://t.me/+79937622440" className="hover:text-primary transition-colors">
+                <div className="flex space-x-4 mt-4">
+                  <a 
+                    href="https://t.me/+79937622440" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-3 py-2 bg-[#0088cc] text-white rounded-md font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.333-.373-.12L9.864 13.17l-2.915-.918c-.64-.203-.658-.64.133-.953L18.16 7.21c.523-.193.985.12.733.953z"/>
+                    </svg>
                     Telegram
                   </a>
-                </div>
-                <div className="flex items-center space-x-3 text-muted-foreground">
-                  <MessageCircle className="w-5 h-5 text-primary" />
-                  <a href="https://wa.me/+79937622440" className="hover:text-primary transition-colors">
+                  <a 
+                    href="https://wa.me/+79937622440" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-3 py-2 bg-[#25D366] text-white rounded-md font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                    </svg>
                     WhatsApp
                   </a>
                 </div>
@@ -131,28 +84,28 @@ const Footer = () => {
               <h3 className="text-xl font-semibold text-foreground">Услуги</h3>
               <div className="space-y-2">
                 <button
-                  onClick={() => handleServiceClick("cadastral")}
+                  onClick={() => handleServiceClick("Оспаривание кадастровой стоимости")}
                   className="block text-left text-muted-foreground hover:text-primary transition-colors w-full"
                 >
                   Оспаривание кадастровой стоимости
                 </button>
                 <button
-                  onClick={() => handleServiceClick("valuation")}
+                  onClick={() => handleServiceClick("Оценка для ипотеки")}
                   className="block text-left text-muted-foreground hover:text-primary transition-colors w-full"
                 >
-                  Независимая оценка недвижимости
+                  Оценка для ипотеки
                 </button>
                 <button
-                  onClick={() => handleServiceClick("court")}
+                  onClick={() => handleServiceClick("Оценка для наследства")}
                   className="block text-left text-muted-foreground hover:text-primary transition-colors w-full"
                 >
-                  Судебное сопровождение
+                  Оценка для наследства
                 </button>
                 <button
-                  onClick={() => handleServiceClick("consultation")}
+                  onClick={() => handleServiceClick("Консультации по оптимизации налогообложения")}
                   className="block text-left text-muted-foreground hover:text-primary transition-colors w-full"
                 >
-                  Консультации по налогообложению
+                  Консультации по оптимизации налогообложения
                 </button>
               </div>
             </div>
