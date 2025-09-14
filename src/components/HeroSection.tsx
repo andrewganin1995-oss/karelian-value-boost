@@ -1,11 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { useScrollToForm } from "@/hooks/useScrollToForm";
-
 const HeroSection = () => {
   const scrollToForm = useScrollToForm();
-  
-  return (
-    <section className="min-h-screen bg-gradient-hero flex items-center justify-center px-4">
+  return <section className="min-h-screen bg-gradient-hero flex items-center justify-center px-4">
       <div className="container max-w-6xl mx-auto text-center">
         <div className="space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -17,26 +14,13 @@ const HeroSection = () => {
             Обоснованность и достоверность
           </div>
           
-          <div className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed space-y-2">
-            <p>• Независимая оценка всех объектов недвижимости.</p>
-            <p>• Оптимизация налогообложения для предпринимателей Республики Карелия.</p>
-          </div>
+          
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="px-8 py-4 text-lg mr-4"
-              onClick={scrollToForm}
-            >
+            <Button variant="hero" size="lg" className="px-8 py-4 text-lg mr-4" onClick={scrollToForm}>
               Рассчитать стоимость
             </Button>
-            <Button 
-              variant="hero" 
-              size="lg" 
-              className="px-8 py-4 text-lg"
-              onClick={scrollToForm}
-            >
+            <Button variant="hero" size="lg" className="px-8 py-4 text-lg" onClick={scrollToForm}>
               Получить консультацию
             </Button>
           </div>
@@ -57,8 +41,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
