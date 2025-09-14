@@ -12,8 +12,7 @@ const CTASection = () => {
           Остались вопросы? Получите бесплатную консультацию
         </h2>
         <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-          Свяжитесь с нами удобным способом и получите профессиональную консультацию 
-          по оспариванию кадастровой стоимости
+          Оставьте заявку, и наш специалист свяжется с вами для предварительной консультации по вопросам оценки.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button 

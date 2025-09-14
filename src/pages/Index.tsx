@@ -2,6 +2,8 @@ import HeroSection from "@/components/HeroSection";
 import SectionA from "@/components/SectionA";
 import SectionB from "@/components/SectionB";
 import PropertyCalculator from "@/components/PropertyCalculator";
+import AboutCompany from "@/components/AboutCompany";
+import ClientResults from "@/components/ClientResults";
 import PriceList from "@/components/PriceList";
 import DiscountSection from "@/components/DiscountSection";
 import CTASection from "@/components/CTASection";
@@ -17,6 +19,7 @@ const Index = () => {
     <main className="min-h-screen">
       <HeroSection />
       <PropertyCalculator />
+      <AboutCompany />
       
       <div className="py-10 bg-background">
         <div className="container max-w-6xl mx-auto px-4">
@@ -27,6 +30,10 @@ const Index = () => {
             
             <AccordionSection title="Как мы работаем" value="process">
               <SectionB />
+            </AccordionSection>
+            
+            <AccordionSection title="Результаты наших клиентов" value="results">
+              <ClientResults />
             </AccordionSection>
             
             <AccordionSection title="Прайс-лист на услуги оценки" value="prices">

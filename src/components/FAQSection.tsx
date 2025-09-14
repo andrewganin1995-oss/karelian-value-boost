@@ -1,77 +1,99 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 const FAQSection = () => {
-  const faqs = [
-    {
-      question: "Сколько стоит оспаривание кадастровой стоимости?",
-      answer: "Стоимость услуг зависит от сложности объекта и составляет от 50 000 до 150 000 рублей. При этом экономия на налогах обычно в 10-20 раз превышает затраты на оценку. Первичная консультация — бесплатно."
-    },
-    {
-      question: "Как долго длится процесс оспаривания?",
-      answer: "Полный цикл от оценки до получения результата занимает 2-4 месяца. Сама независимая оценка проводится за 5-7 рабочих дней. Рассмотрение дела комиссией — до 1 месяца, судебное разбирательство (при необходимости) — до 2-3 месяцев."
-    },
-    {
-      question: "Какие документы нужны для начала работы?",
-      answer: "Для начала работы необходимы: правоустанавливающие документы на объект, кадастровый паспорт, справка о кадастровой стоимости, технический паспорт. Полный список документов мы предоставим после первичной консультации."
-    },
-    {
-      question: "Гарантируете ли вы снижение кадастровой стоимости?",
-      answer: "Мы предоставляем гарантию результата. Если по итогам нашей работы кадастровая стоимость не будет снижена, мы возвращаем 100% оплаченных средств. За 20 лет работы таких случаев было менее 2%."
-    },
-    {
-      question: "На сколько процентов можно снизить кадастровую стоимость?",
-      answer: "Размер снижения индивидуален для каждого объекта. В среднем нашим клиентам удается снизить кадастровую стоимость на 30-80%. Точные перспективы определяются после анализа документов и объекта."
-    },
-    {
-      question: "Работаете ли вы с объектами по всей Карелии?",
-      answer: "Да, мы работаем со всеми объектами недвижимости, расположенными на территории Республики Карелия. При необходимости выезжаем для осмотра объекта в любой район республики."
-    }
-  ];
-
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-gradient-section">
       <div className="container max-w-4xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Часто задаваемые <span className="text-primary">вопросы</span>
+            Ответы на самые популярные <span className="text-primary">вопросы об оценке</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ответы на самые популярные вопросы о процедуре оспаривания кадастровой стоимости
-          </p>
         </div>
-        
+
         <Accordion type="single" collapsible className="space-y-4">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`} className="bg-card rounded-lg px-6 border-0 shadow-card">
-              <AccordionTrigger className="text-left text-lg font-semibold hover:text-primary transition-colors py-6">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
+          {/* Общие вопросы об оценке */}
+          <AccordionItem value="general" className="bg-card rounded-lg px-6 border-0 shadow-card">
+            <AccordionTrigger className="text-left text-xl font-bold hover:text-primary transition-colors py-6">
+              Общие вопросы об оценке
+            </AccordionTrigger>
+            <AccordionContent className="pb-6">
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">В каких районах Карелии работаете?</h4>
+                  <p className="text-muted-foreground">
+                    Со всеми объектами Карелии, возможна работа и в других регионах по запросу.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Для чего нужна оценка недвижимости?</h4>
+                  <p className="text-muted-foreground">
+                    Оценка необходима для: ипотеки, наследства, получения кредита, судебных разбирательств, 
+                    аренды, личных целей, купли-продажи и других операций с недвижимостью.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Какие документы нужны для оценки?</h4>
+                  <p className="text-muted-foreground">
+                    Документы с характеристиками объекта: правоудостоверяющие документы, 
+                    техническая инвентаризация и другие документы, описывающие объект оценки.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Как определяется рыночная стоимость?</h4>
+                  <p className="text-muted-foreground">
+                    Индивидуальный расчет на основе рыночной ситуации и характеристик объекта. 
+                    Возможен подробный отчет (от 1000 ₽).
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">В чем отличие рыночной и кадастровой стоимости?</h4>
+                  <p className="text-muted-foreground">
+                    Рыночная стоимость — это цена реальной сделки, определяемая индивидуально. 
+                    Кадастровая стоимость — это налоговая оценка, рассчитываемая методами массовой оценки.
+                  </p>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+
+          {/* Вопросы о снижении кадастровой стоимости */}
+          <AccordionItem value="cadastral" className="bg-card rounded-lg px-6 border-0 shadow-card">
+            <AccordionTrigger className="text-left text-xl font-bold hover:text-primary transition-colors py-6">
+              Вопросы о снижении кадастровой стоимости
+            </AccordionTrigger>
+            <AccordionContent className="pb-6">
+              <div className="space-y-6">
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Сколько времени занимает процедура?</h4>
+                  <p className="text-muted-foreground">
+                    От подачи документов до получения результата обычно проходит 2-4 месяца, 
+                    в зависимости от загруженности комиссии.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Какая экономия возможна?</h4>
+                  <p className="text-muted-foreground">
+                    В среднем удается снизить кадастровую стоимость на 30-70%. 
+                    Конкретная сумма экономии зависит от характеристик объекта.
+                  </p>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-2">Есть ли гарантия результата?</h4>
+                  <p className="text-muted-foreground">
+                    Мы берем в работу только перспективные дела. При отрицательном решении 
+                    комиссии предусмотрен частичный возврат средств.
+                  </p>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
-        
-        <div className="mt-16 text-center">
-          <p className="text-lg text-muted-foreground mb-4">
-            Остались вопросы? Получите бесплатную консультацию
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="tel:+78142123456" 
-              className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground rounded-md font-semibold hover:opacity-90 transition-opacity"
-            >
-              +7 (8142) 12-34-56
-            </a>
-            <a 
-              href="mailto:info@appraisal-karelia.ru" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-border rounded-md font-semibold hover:bg-accent transition-colors"
-            >
-              info@appraisal-karelia.ru
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );

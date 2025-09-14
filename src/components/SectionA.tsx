@@ -8,20 +8,20 @@ const SectionA = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Наши <span className="text-primary">преимущества</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Более 20 лет опыта в оценке недвижимости и успешном снижении кадастровой стоимости 
-            для предпринимателей Карелии
-          </p>
+          <div className="text-xl text-muted-foreground max-w-3xl mx-auto space-y-2">
+            <p>• Более 15 лет опыта в оценке недвижимости для жителей Карелии.</p>
+            <p>• Более 10 лет опыта успешного снижения кадастровой стоимости для предпринимателей.</p>
+          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
             <div className="mb-4">
               <CheckCircle className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Лицензированный оценщик</h3>
+            <h3 className="text-2xl font-semibold mb-4">Профессиональный оценщик</h3>
             <p className="text-muted-foreground">
-              Имеем все необходимые лицензии и аккредитации для проведения независимой оценки недвижимости
+              Оценщик имеет все необходимые документы для проведения независимой оценки недвижимости и соответствует ФЗ № 135-ФЗ
             </p>
           </div>
           
@@ -29,9 +29,9 @@ const SectionA = () => {
             <div className="mb-4">
               <CheckCircle className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">100% успешных дел</h3>
+            <h3 className="text-2xl font-semibold mb-4">Оценка для любых целей – 100% результат</h3>
             <p className="text-muted-foreground">
-              Высокий процент успешного оспаривания кадастровой стоимости благодаря опыту и профессионализму
+              Независимая оценка имущества (ипотека, наследство, аренда, купля-продажа, суд и др.)
             </p>
           </div>
           
@@ -39,9 +39,9 @@ const SectionA = () => {
             <div className="mb-4">
               <CheckCircle className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Гарантия результата</h3>
+            <h3 className="text-2xl font-semibold mb-4">Аккредитация</h3>
             <p className="text-muted-foreground">
-              Предоставляем гарантию на наши услуги. Если не снизим стоимость — вернем деньги
+              Сбербанк, Газпромбанк, Уралсиб, Связьбанк и другие
             </p>
           </div>
           
@@ -49,29 +49,9 @@ const SectionA = () => {
             <div className="mb-4">
               <CheckCircle className="w-12 h-12 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Быстрые сроки</h3>
+            <h3 className="text-2xl font-semibold mb-4">Оптимизация налогообложения</h3>
             <p className="text-muted-foreground">
-              Проводим оценку в течение 5-7 рабочих дней. Оперативно подготавливаем документы для суда
-            </p>
-          </div>
-          
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Полное сопровождение</h3>
-            <p className="text-muted-foreground">
-              Ведем дело от оценки до получения положительного решения суда включительно
-            </p>
-          </div>
-          
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">Экономия до 80%</h3>
-            <p className="text-muted-foreground">
-              Наши клиенты экономят от 30% до 80% на налогах благодаря снижению кадастровой стоимости
+              Снижение кадастровой стоимости. Полное сопровождение в Центре госкадастровой оценки
             </p>
           </div>
         </div>

@@ -9,15 +9,18 @@ const HeroSection = () => {
       <div className="container max-w-6xl mx-auto text-center">
         <div className="space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Самый котируемый
-            <span className="block text-primary">оценщик Карелии</span>
-            более чем 15 лет работы
+            ПРОФЕССИОНАЛЬНЫЙ ОЦЕНЩИК
+            <span className="block text-primary">НЕДВИЖИМОСТИ В КАРЕЛИИ</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            Профессионально оспариваем кадастровую стоимость недвижимости. 
-            Снижение налогов до 80% для предпринимателей Республики Карелия.
-          </p>
+          <div className="text-2xl md:text-3xl font-semibold text-primary mb-6">
+            Обоснованность и достоверность
+          </div>
+          
+          <div className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed space-y-2">
+            <p>• Независимая оценка всех объектов недвижимости.</p>
+            <p>• Оптимизация налогообложения для предпринимателей Республики Карелия.</p>
+          </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
             <Button 

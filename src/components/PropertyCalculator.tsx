@@ -16,65 +16,65 @@ const PropertyCalculator = () => {
   const [finishCondition, setFinishCondition] = useState("");
 
   const coefficients = {
+    market: {
+      "Первичный": { value: 1.0, label: "(1.0)" },
+      "Вторичный": { value: 0.85, label: "(0.85)" }
+    },
     district: {
-      "Центр": { value: 1.1, label: "+10%" },
-      "Спальный район": { value: 1.0, label: "0%" },
-      "Окраина": { value: 0.9, label: "-10%" }
+      "Высокий": { value: 1.00, label: "(1.00)" },
+      "Средний": { value: 0.86, label: "(0.86)" },
+      "Низкий": { value: 0.71, label: "(0.71)" }
     },
     material: {
-      "Кирпич": { value: 1.1, label: "+10%" },
-      "Панель": { value: 1.0, label: "0%" },
-      "Дерево": { value: 0.9, label: "-10%" }
+      "Кирпич/Монолит": { value: 1.00, label: "(1.00)" },
+      "Панель": { value: 0.86, label: "(0.86)" },
+      "Дерево": { value: 0.71, label: "(0.71)" }
     },
     houseCondition: {
-      "Отличное": { value: 1.1, label: "+10%" },
-      "Хорошее": { value: 1.0, label: "0%" },
-      "Удовлетворительное": { value: 0.9, label: "-10%" },
-      "Плохое": { value: 0.8, label: "-20%" }
+      "Отличное": { value: 1.00, label: "(1.00)" },
+      "Хорошее": { value: 0.85, label: "(0.85)" },
+      "Удовлетворительное": { value: 0.75, label: "(0.75)" }
     },
     floor: {
-      "1": { value: 0.95, label: "-5%" },
-      "2-5": { value: 1.0, label: "0%" },
-      "6-9": { value: 1.05, label: "+5%" },
-      "10+": { value: 0.95, label: "-5%" }
+      "Средний": { value: 1.00, label: "(1.00)" },
+      "Последний": { value: 0.97, label: "(0.97)" },
+      "Первый": { value: 0.94, label: "(0.94)" }
     },
     finishQuality: {
-      "Евроремонт": { value: 1.15, label: "+15%" },
-      "Хороший ремонт": { value: 1.05, label: "+5%" },
-      "Обычный ремонт": { value: 1.0, label: "0%" },
-      "Косметический": { value: 0.95, label: "-5%" },
-      "Без ремонта": { value: 0.8, label: "-20%" }
+      "Без отделки": { value: 0.89, label: "(0.89)" },
+      "Предчистовая": { value: 1.00, label: "(1.00)" },
+      "Простая": { value: 1.07, label: "(1.07)" },
+      "Улучшенная": { value: 1.18, label: "(1.18)" }
     },
     finishCondition: {
-      "Отличное": { value: 1.0, label: "0%" },
-      "Хорошее": { value: 0.95, label: "-5%" },
-      "Удовлетворительное": { value: 0.9, label: "-10%" },
-      "Требует обновления": { value: 0.85, label: "-15%" }
+      "Новое": { value: 1.00, label: "(1.00)" },
+      "Удовлетворительное": { value: 0.70, label: "(0.70)" },
+      "Неудовлетворительное": { value: 0.20, label: "(0.20)" }
     }
   };
 
-  const basePrices = {
-    "Первичный рынок": { min: 200000, max: 250000 },
-    "Вторичный рынок": { min: 170000, max: 212500 }
-  };
+  // Фиксированная стоимость за м²
+  const basePriceMin = 200000;
+  const basePriceMax = 250000;
 
   const calculatePrice = () => {
     if (!market) return null;
     
-    const basePrice = basePrices[market as keyof typeof basePrices];
     const currentArea = area[0];
     
-    let kDistrict = district ? coefficients.district[district as keyof typeof coefficients.district]?.value || 1 : 1;
-    let kMaterial = material ? coefficients.material[material as keyof typeof coefficients.material]?.value || 1 : 1;
-    let kHouseCondition = houseCondition ? coefficients.houseCondition[houseCondition as keyof typeof coefficients.houseCondition]?.value || 1 : 1;
-    let kFloor = floor ? coefficients.floor[floor as keyof typeof coefficients.floor]?.value || 1 : 1;
-    let kFinishQuality = finishQuality ? coefficients.finishQuality[finishQuality as keyof typeof coefficients.finishQuality]?.value || 1 : 1;
-    let kFinishCondition = finishCondition ? coefficients.finishCondition[finishCondition as keyof typeof coefficients.finishCondition]?.value || 1 : 1;
+    // Формула: A * B * C * D * E * F * X * Y * P
+    const kMarket = market ? coefficients.market[market as keyof typeof coefficients.market]?.value || 1 : 1;
+    const kDistrict = district ? coefficients.district[district as keyof typeof coefficients.district]?.value || 1 : 1;
+    const kMaterial = material ? coefficients.material[material as keyof typeof coefficients.material]?.value || 1 : 1;
+    const kHouseCondition = houseCondition ? coefficients.houseCondition[houseCondition as keyof typeof coefficients.houseCondition]?.value || 1 : 1;
+    const kFloor = floor ? coefficients.floor[floor as keyof typeof coefficients.floor]?.value || 1 : 1;
+    const kFinishQuality = finishQuality ? coefficients.finishQuality[finishQuality as keyof typeof coefficients.finishQuality]?.value || 1 : 1;
+    const kFinishCondition = finishCondition ? coefficients.finishCondition[finishCondition as keyof typeof coefficients.finishCondition]?.value || 1 : 1;
     
-    const totalCoeff = kDistrict * kMaterial * kHouseCondition * kFloor * kFinishQuality * kFinishCondition;
+    const totalCoeff = kMarket * kDistrict * kMaterial * kHouseCondition * kFloor * kFinishQuality * kFinishCondition;
     
-    const minPrice = Math.round(currentArea * basePrice.min * totalCoeff);
-    const maxPrice = Math.round(currentArea * basePrice.max * totalCoeff);
+    const minPrice = Math.round(currentArea * basePriceMin * totalCoeff);
+    const maxPrice = Math.round(currentArea * basePriceMax * totalCoeff);
     
     return { min: minPrice, max: maxPrice };
   };
@@ -119,45 +119,51 @@ const PropertyCalculator = () => {
 
           {/* Рынок */}
           <div>
-            <label className="block text-lg font-semibold mb-4">Рынок</label>
+            <label className="block text-lg font-semibold mb-4">
+              Рынок {market && coefficients.market[market as keyof typeof coefficients.market] && (
+                <span className="text-primary text-sm">
+                  {coefficients.market[market as keyof typeof coefficients.market].label}
+                </span>
+              )}
+            </label>
             <Select value={market} onValueChange={setMarket}>
               <SelectTrigger>
                 <SelectValue placeholder="Выберите тип рынка" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Первичный рынок">Первичный рынок</SelectItem>
-                <SelectItem value="Вторичный рынок">Вторичный рынок</SelectItem>
+                <SelectItem value="Первичный">Первичный (1.0)</SelectItem>
+                <SelectItem value="Вторичный">Вторичный (0.85)</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          {/* Район */}
+          {/* Уровень района */}
           <div>
             <label className="block text-lg font-semibold mb-4">
-              Район {district && coefficients.district[district as keyof typeof coefficients.district] && (
+              Уровень района {district && coefficients.district[district as keyof typeof coefficients.district] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.district[district as keyof typeof coefficients.district].label})
+                  {coefficients.district[district as keyof typeof coefficients.district].label}
                 </span>
               )}
             </label>
             <Select value={district} onValueChange={setDistrict}>
               <SelectTrigger>
-                <SelectValue placeholder="Выберите район" />
+                <SelectValue placeholder="Выберите уровень района" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Центр">Центр (+10%)</SelectItem>
-                <SelectItem value="Спальный район">Спальный район (0%)</SelectItem>
-                <SelectItem value="Окраина">Окраина (-10%)</SelectItem>
+                <SelectItem value="Высокий">Высокий (1.00)</SelectItem>
+                <SelectItem value="Средний">Средний (0.86)</SelectItem>
+                <SelectItem value="Низкий">Низкий (0.71)</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
-          {/* Материал */}
+          {/* Материал дома */}
           <div>
             <label className="block text-lg font-semibold mb-4">
               Материал дома {material && coefficients.material[material as keyof typeof coefficients.material] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.material[material as keyof typeof coefficients.material].label})
+                  {coefficients.material[material as keyof typeof coefficients.material].label}
                 </span>
               )}
             </label>
@@ -166,9 +172,9 @@ const PropertyCalculator = () => {
                 <SelectValue placeholder="Выберите материал" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Кирпич">Кирпич (+10%)</SelectItem>
-                <SelectItem value="Панель">Панель (0%)</SelectItem>
-                <SelectItem value="Дерево">Дерево (-10%)</SelectItem>
+                <SelectItem value="Кирпич/Монолит">Кирпич/Монолит (1.00)</SelectItem>
+                <SelectItem value="Панель">Панель (0.86)</SelectItem>
+                <SelectItem value="Дерево">Дерево (0.71)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -178,7 +184,7 @@ const PropertyCalculator = () => {
             <label className="block text-lg font-semibold mb-4">
               Состояние дома {houseCondition && coefficients.houseCondition[houseCondition as keyof typeof coefficients.houseCondition] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.houseCondition[houseCondition as keyof typeof coefficients.houseCondition].label})
+                  {coefficients.houseCondition[houseCondition as keyof typeof coefficients.houseCondition].label}
                 </span>
               )}
             </label>
@@ -187,10 +193,9 @@ const PropertyCalculator = () => {
                 <SelectValue placeholder="Выберите состояние" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Отличное">Отличное (+10%)</SelectItem>
-                <SelectItem value="Хорошее">Хорошее (0%)</SelectItem>
-                <SelectItem value="Удовлетворительное">Удовлетворительное (-10%)</SelectItem>
-                <SelectItem value="Плохое">Плохое (-20%)</SelectItem>
+                <SelectItem value="Отличное">Отличное (1.00)</SelectItem>
+                <SelectItem value="Хорошее">Хорошее (0.85)</SelectItem>
+                <SelectItem value="Удовлетворительное">Удовлетворительное (0.75)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -200,7 +205,7 @@ const PropertyCalculator = () => {
             <label className="block text-lg font-semibold mb-4">
               Этаж {floor && coefficients.floor[floor as keyof typeof coefficients.floor] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.floor[floor as keyof typeof coefficients.floor].label})
+                  {coefficients.floor[floor as keyof typeof coefficients.floor].label}
                 </span>
               )}
             </label>
@@ -209,10 +214,9 @@ const PropertyCalculator = () => {
                 <SelectValue placeholder="Выберите этаж" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1">1 этаж (-5%)</SelectItem>
-                <SelectItem value="2-5">2-5 этаж (0%)</SelectItem>
-                <SelectItem value="6-9">6-9 этаж (+5%)</SelectItem>
-                <SelectItem value="10+">10+ этаж (-5%)</SelectItem>
+                <SelectItem value="Средний">Средний (1.00)</SelectItem>
+                <SelectItem value="Последний">Последний (0.97)</SelectItem>
+                <SelectItem value="Первый">Первый (0.94)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -222,7 +226,7 @@ const PropertyCalculator = () => {
             <label className="block text-lg font-semibold mb-4">
               Качество отделки {finishQuality && coefficients.finishQuality[finishQuality as keyof typeof coefficients.finishQuality] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.finishQuality[finishQuality as keyof typeof coefficients.finishQuality].label})
+                  {coefficients.finishQuality[finishQuality as keyof typeof coefficients.finishQuality].label}
                 </span>
               )}
             </label>
@@ -231,11 +235,10 @@ const PropertyCalculator = () => {
                 <SelectValue placeholder="Выберите качество отделки" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Евроремонт">Евроремонт (+15%)</SelectItem>
-                <SelectItem value="Хороший ремонт">Хороший ремонт (+5%)</SelectItem>
-                <SelectItem value="Обычный ремонт">Обычный ремонт (0%)</SelectItem>
-                <SelectItem value="Косметический">Косметический (-5%)</SelectItem>
-                <SelectItem value="Без ремонта">Без ремонта (-20%)</SelectItem>
+                <SelectItem value="Без отделки">Без отделки (0.89)</SelectItem>
+                <SelectItem value="Предчистовая">Предчистовая (1.00)</SelectItem>
+                <SelectItem value="Простая">Простая (1.07)</SelectItem>
+                <SelectItem value="Улучшенная">Улучшенная (1.18)</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -245,7 +248,7 @@ const PropertyCalculator = () => {
             <label className="block text-lg font-semibold mb-4">
               Состояние отделки {finishCondition && coefficients.finishCondition[finishCondition as keyof typeof coefficients.finishCondition] && (
                 <span className="text-primary text-sm">
-                  ({coefficients.finishCondition[finishCondition as keyof typeof coefficients.finishCondition].label})
+                  {coefficients.finishCondition[finishCondition as keyof typeof coefficients.finishCondition].label}
                 </span>
               )}
             </label>
@@ -254,10 +257,9 @@ const PropertyCalculator = () => {
                 <SelectValue placeholder="Выберите состояние отделки" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="Отличное">Отличное (0%)</SelectItem>
-                <SelectItem value="Хорошее">Хорошее (-5%)</SelectItem>
-                <SelectItem value="Удовлетворительное">Удовлетворительное (-10%)</SelectItem>
-                <SelectItem value="Требует обновления">Требует обновления (-15%)</SelectItem>
+                <SelectItem value="Новое">Новое (1.00)</SelectItem>
+                <SelectItem value="Удовлетворительное">Удовлетворительное (0.70)</SelectItem>
+                <SelectItem value="Неудовлетворительное">Неудовлетворительное (0.20)</SelectItem>
               </SelectContent>
             </Select>
           </div>
