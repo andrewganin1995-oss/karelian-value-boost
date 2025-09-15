@@ -121,7 +121,7 @@ const ReviewsCarousel = () => {
         <div className="text-center mt-12">
           <Button variant="outline" asChild>
             <a 
-              href="https://share.google/nbvesUQGtmDVhkQ4P" 
+              href="https://maps.app.goo.gl/zqA9guX6ErJwCje68" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2"

@@ -6,8 +6,8 @@ const HeroSection = () => {
       <div className="container max-w-6xl mx-auto text-center">
         <div className="space-y-8">
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            ПРОФЕССИОНАЛЬНЫЙ ОЦЕНЩИК
-            <span className="block text-primary">НЕДВИЖИМОСТИ В КАРЕЛИИ</span>
+            Профессиональный оценщик
+            <span className="block text-primary">недвижимости в Карелии</span>
           </h1>
           
           <div className="text-2xl md:text-3xl font-semibold text-primary mb-6">

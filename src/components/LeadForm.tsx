@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadForm = () => {
   const [formData, setFormData] = useState({
@@ -13,16 +14,37 @@ const LeadForm = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Здесь была бы интеграция с CRM или email сервисом
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в течение часа",
-    });
-    
-    setFormData({ name: "", contact: "", purpose: "" });
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([
+          {
+            name: formData.name,
+            contact: formData.contact,
+            purpose: formData.purpose,
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Заявка отправлена!",
+        description: "Мы свяжемся с вами в течение часа",
+      });
+      
+      setFormData({ name: "", contact: "", purpose: "" });
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте еще раз.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (

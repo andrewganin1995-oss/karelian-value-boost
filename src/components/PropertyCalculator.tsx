@@ -20,8 +20,8 @@ const PropertyCalculator = () => {
         label: "(1.0)"
       },
       "Вторичный": {
-        value: 0.85,
-        label: "(0.85)"
+        value: 0.9,
+        label: "(0.9)"
       }
     },
     district: {
@@ -178,7 +178,7 @@ const PropertyCalculator = () => {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="Первичный">Первичный (1.0)</SelectItem>
-                <SelectItem value="Вторичный">Вторичный (0.85)</SelectItem>
+                <SelectItem value="Вторичный">Вторичный (0.9)</SelectItem>
               </SelectContent>
             </Select>
           </div>
