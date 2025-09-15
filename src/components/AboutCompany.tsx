@@ -15,7 +15,7 @@ const AboutCompany = () => {
             О <span className="text-primary">компании</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Мы предоставляем профессиональные услуги по независимой оценке недвижимости в Республике Карелия с 2009 года.
+            Мы предоставляем профессиональные услуги по независимой оценке недвижимости в Республике Карелия с 2010 года.
           </p>
           <Button 
             variant="hero" 
