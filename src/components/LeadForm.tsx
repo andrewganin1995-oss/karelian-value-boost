@@ -11,6 +11,7 @@ const LeadForm = () => {
     name: "",
     contact: "",
     purpose: "",
+    preferredContactMethod: "",
   });
   const { toast } = useToast();
 
@@ -25,6 +26,7 @@ const LeadForm = () => {
             name: formData.name,
             contact: formData.contact,
             purpose: formData.purpose,
+            preferred_contact_method: formData.preferredContactMethod,
           }
         ]);
 
@@ -37,7 +39,7 @@ const LeadForm = () => {
         description: "Мы свяжемся с вами в течение часа",
       });
       
-      setFormData({ name: "", contact: "", purpose: "" });
+      setFormData({ name: "", contact: "", purpose: "", preferredContactMethod: "" });
     } catch (error) {
       toast({
         title: "Ошибка",
@@ -99,6 +101,21 @@ const LeadForm = () => {
                   <SelectItem value="tax-optimization">Консультация по налоговой оптимизации</SelectItem>
                   <SelectItem value="court-support">Судебное сопровождение</SelectItem>
                   <SelectItem value="other">Другое</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            
+            <div className="space-y-3">
+              <Label htmlFor="preferredContact" className="text-foreground font-medium">Предпочтительный способ связи</Label>
+              <Select value={formData.preferredContactMethod} onValueChange={(value) => setFormData({ ...formData, preferredContactMethod: value })}>
+                <SelectTrigger className="h-14 rounded-xl border-border bg-card/50 backdrop-blur-sm focus:border-primary focus:ring-primary/20 transition-all duration-300">
+                  <SelectValue placeholder="Выберите способ связи" />
+                </SelectTrigger>
+                <SelectContent className="rounded-xl border-border bg-background/95 backdrop-blur-sm">
+                  <SelectItem value="email">Email</SelectItem>
+                  <SelectItem value="call">Звонок</SelectItem>
+                  <SelectItem value="whatsapp">WhatsApp</SelectItem>
+                  <SelectItem value="telegram">Telegram</SelectItem>
                 </SelectContent>
               </Select>
             </div>
