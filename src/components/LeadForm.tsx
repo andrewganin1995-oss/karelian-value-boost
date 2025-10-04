@@ -5,6 +5,32 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const leadFormSchema = z.object({
+  name: z.string()
+    .trim()
+    .min(1, "Имя обязательно")
+    .max(100, "Имя не должно превышать 100 символов"),
+  contact: z.string()
+    .trim()
+    .min(1, "Контакт обязателен")
+    .max(255, "Контакт не должен превышать 255 символов")
+    .refine(
+      (val) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[\d\s+()-]{7,}$/;
+        return emailRegex.test(val) || phoneRegex.test(val);
+      },
+      "Введите корректный email или телефон"
+    ),
+  purpose: z.enum(["cadastral-dispute", "property-valuation", "tax-optimization", "court-support", "other"], {
+    errorMap: () => ({ message: "Выберите цель обращения" })
+  }).optional(),
+  preferredContactMethod: z.enum(["email", "call", "whatsapp", "telegram"], {
+    errorMap: () => ({ message: "Выберите способ связи" })
+  }).optional(),
+});
 
 const LeadForm = () => {
   const [formData, setFormData] = useState({
@@ -18,15 +44,28 @@ const LeadForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Validate form data
+    const validation = leadFormSchema.safeParse(formData);
+    
+    if (!validation.success) {
+      const errors = validation.error.errors;
+      toast({
+        title: "Ошибка валидации",
+        description: errors[0]?.message || "Проверьте правильность заполнения формы",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     try {
       const { error } = await supabase
         .from('leads')
         .insert([
           {
-            name: formData.name,
-            contact: formData.contact,
-            purpose: formData.purpose,
-            preferred_contact_method: formData.preferredContactMethod,
+            name: validation.data.name,
+            contact: validation.data.contact,
+            purpose: validation.data.purpose || "",
+            preferred_contact_method: validation.data.preferredContactMethod || null,
           }
         ]);
 
