@@ -2,56 +2,56 @@ import { CheckCircle } from "lucide-react";
 
 const SectionA = () => {
   return (
-    <section className="py-20 bg-gradient-section">
+    <section className="py-20 bg-background">
       <div className="container max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Наши <span className="text-primary">преимущества</span>
           </h2>
-          <div className="text-xl text-muted-foreground max-w-3xl mx-auto space-y-2">
-            <p>• Более 15 лет опыта в оценке недвижимости для жителей Карелии.</p>
-            <p>• Более 10 лет опыта успешного снижения кадастровой стоимости для предпринимателей.</p>
+          <div className="text-base text-muted-foreground max-w-3xl mx-auto space-y-1">
+            <p>Более 15 лет опыта в оценке недвижимости для жителей Карелии</p>
+            <p>Более 10 лет опыта успешного снижения кадастровой стоимости для предпринимателей</p>
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-card/50 p-6 rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
+            <div className="mb-3">
+              <CheckCircle className="w-10 h-10 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Профессиональный оценщик</h3>
-            <p className="text-muted-foreground">
-              Оценщик имеет все необходимые документы для проведения независимой оценки недвижимости и соответствует ФЗ № 135-ФЗ
+            <h3 className="text-lg font-semibold mb-3">Профессиональный оценщик</h3>
+            <p className="text-sm text-muted-foreground">
+              Все необходимые документы для независимой оценки согласно ФЗ № 135-ФЗ
             </p>
           </div>
           
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
+          <div className="bg-card/50 p-6 rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
+            <div className="mb-3">
+              <CheckCircle className="w-10 h-10 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Оценка для любых целей – 100% результат</h3>
-            <p className="text-muted-foreground">
-              Независимая оценка имущества (ипотека, наследство, аренда, купля-продажа, суд и др.)
+            <h3 className="text-lg font-semibold mb-3">Оценка для любых целей</h3>
+            <p className="text-sm text-muted-foreground">
+              Ипотека, наследство, аренда, купля-продажа, суд и другие цели
             </p>
           </div>
           
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
+          <div className="bg-card/50 p-6 rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
+            <div className="mb-3">
+              <CheckCircle className="w-10 h-10 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Аккредитация</h3>
-            <p className="text-muted-foreground">
-              Сбербанк, Газпромбанк, Уралсиб, Связьбанк и другие
+            <h3 className="text-lg font-semibold mb-3">Аккредитация</h3>
+            <p className="text-sm text-muted-foreground">
+              Сбербанк, Газпромбанк, Уралсиб, Связьбанк и другие банки
             </p>
           </div>
           
-          <div className="bg-card p-8 rounded-lg shadow-card transition-smooth hover:shadow-elegant">
-            <div className="mb-4">
-              <CheckCircle className="w-12 h-12 text-primary" />
+          <div className="bg-card/50 p-6 rounded-lg border border-border/50 hover:border-primary/50 transition-colors">
+            <div className="mb-3">
+              <CheckCircle className="w-10 h-10 text-primary" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4">Оптимизация налогообложения</h3>
-            <p className="text-muted-foreground">
-              Снижение кадастровой стоимости. Полное сопровождение в Центре госкадастровой оценки
+            <h3 className="text-lg font-semibold mb-3">Оптимизация налогов</h3>
+            <p className="text-sm text-muted-foreground">
+              Снижение кадастровой стоимости с полным сопровождением
             </p>
           </div>
         </div>
