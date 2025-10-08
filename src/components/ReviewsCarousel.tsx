@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, Star, ExternalLink } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
@@ -42,7 +42,7 @@ const ReviewsCarousel = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -88,21 +88,6 @@ const ReviewsCarousel = () => {
               ))}
             </div>
           </div>
-
-          {/* Navigation arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-card hover:shadow-elegant transition-all"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center shadow-card hover:shadow-elegant transition-all"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
 
           {/* Dots indicator */}
           <div className="flex justify-center mt-8 space-x-2">
