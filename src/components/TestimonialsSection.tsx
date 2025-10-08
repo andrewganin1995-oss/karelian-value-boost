@@ -23,13 +23,13 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-section">
+    <section className="py-12 sm:py-16 md:py-20 bg-gradient-section">
       <div className="container max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Отзывы наших <span className="text-primary">клиентов</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
             Более 500 предпринимателей Карелии уже сэкономили миллионы рублей благодаря нашим услугам
           </p>
         </div>
@@ -55,20 +55,20 @@ const TestimonialsSection = () => {
           ))}
         </div>
         
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-card p-8 rounded-lg shadow-card">
-            <div className="flex items-center justify-center space-x-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">4.9</div>
-                <div className="text-sm text-muted-foreground">Средняя оценка</div>
+        <div className="mt-8 sm:mt-12 md:mt-16 text-center">
+          <div className="inline-block bg-card p-4 sm:p-6 md:p-8 rounded-lg shadow-card w-full max-w-lg">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap sm:flex-nowrap">
+              <div className="text-center flex-1 min-w-[80px]">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">4.9</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Средняя оценка</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">Отзывов</div>
+              <div className="text-center flex-1 min-w-[80px]">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">500+</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Отзывов</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">Рекомендуют</div>
+              <div className="text-center flex-1 min-w-[80px]">
+                <div className="text-2xl sm:text-3xl font-bold text-primary">98%</div>
+                <div className="text-xs sm:text-sm text-muted-foreground">Рекомендуют</div>
               </div>
             </div>
           </div>

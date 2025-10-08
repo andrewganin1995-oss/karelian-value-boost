@@ -3,8 +3,8 @@ import { Phone, Mail, Clock } from "lucide-react";
 const Footer = () => {
   return (
       <footer className="bg-card border-t border-border">
-        <div className="container max-w-6xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-start">
+        <div className="container max-w-6xl mx-auto px-4 py-8 sm:py-12 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             {/* Контакты */}
             <div className="space-y-4 w-full">
               <h3 className="text-xl font-semibold text-foreground">Контакты</h3>
@@ -67,12 +67,12 @@ const Footer = () => {
             
           </div>
           
-          <div className="border-t border-border mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-muted-foreground text-sm">
+          <div className="border-t border-border mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 col-span-full">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
+              <div className="text-muted-foreground text-xs sm:text-sm">
                 © 2024 Оценщик недвижимости Карелия. Все права защищены.
               </div>
-              <div className="flex space-x-6 text-sm">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs sm:text-sm">
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                   Политика конфиденциальности
                 </a>

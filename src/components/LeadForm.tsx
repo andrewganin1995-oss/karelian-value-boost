@@ -89,18 +89,18 @@ const LeadForm = () => {
   };
 
   return (
-    <section id="lead-form" className="py-20 bg-gradient-section">
+    <section id="lead-form" className="py-12 sm:py-16 md:py-20 bg-gradient-section">
       <div className="container max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Получите <span className="text-primary">бесплатную</span> консультацию
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-2">
             Оставьте заявку, и наш специалист свяжется с вами для предварительной оценки перспектив дела
           </p>
         </div>
         
-        <div className="bg-background p-8 rounded-2xl shadow-elegant max-w-2xl mx-auto border border-primary/10 transition-smooth hover:shadow-primary/20">
+        <div className="bg-background p-4 sm:p-6 md:p-8 rounded-2xl shadow-elegant max-w-2xl mx-auto border border-primary/10 transition-smooth hover:shadow-primary/20">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-3">
               <Label htmlFor="name" className="text-foreground font-medium">Имя и фамилия *</Label>

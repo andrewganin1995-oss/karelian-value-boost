@@ -141,18 +141,18 @@ const PropertyCalculator = () => {
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('ru-RU').format(price);
   };
-  return <section className="py-20 bg-gradient-section">
+  return <section className="py-12 sm:py-16 md:py-20 bg-gradient-section">
       <div className="container max-w-4xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <div className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
             Калькулятор <span className="text-primary">стоимости</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-2">
             Рассчитайте примерную стоимость вашей недвижимости
           </p>
         </div>
 
-        <Card className="p-8 space-y-6">
+        <Card className="p-4 sm:p-6 md:p-8 space-y-4 sm:space-y-6">
           {/* Площадь */}
           <div>
             <label className="block text-lg font-semibold mb-4">
@@ -299,12 +299,12 @@ const PropertyCalculator = () => {
           </div>
 
           {/* Результат */}
-          {result && <div className="bg-primary/10 p-6 rounded-lg text-center">
-              <h3 className="text-2xl font-bold mb-2">Расчетная стоимость</h3>
-              <div className="text-4xl font-bold text-primary mb-2">
+          {result && <div className="bg-primary/10 p-4 sm:p-6 rounded-lg text-center">
+              <h3 className="text-xl sm:text-2xl font-bold mb-2">Расчетная стоимость</h3>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 break-words">
                 от {formatPrice(result.min)} до {formatPrice(result.max)} ₽
               </div>
-              <p className="text-muted-foreground">
+              <p className="text-sm sm:text-base text-muted-foreground">
                 Точная сумма будет рассчитана после осмотра объекта
               </p>
               
