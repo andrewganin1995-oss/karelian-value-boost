@@ -7,6 +7,25 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
+const getAuthErrorMessage = (error: any): string => {
+  const message = error?.message?.toLowerCase() || '';
+  
+  if (message.includes('invalid login') || message.includes('invalid password')) {
+    return 'Неверный email или пароль';
+  }
+  if (message.includes('user already registered') || message.includes('already exists')) {
+    return 'Пожалуйста, проверьте введенные данные';
+  }
+  if (message.includes('email not confirmed')) {
+    return 'Пожалуйста, подтвердите email адрес';
+  }
+  if (message.includes('email rate limit')) {
+    return 'Слишком много попыток. Попробуйте позже';
+  }
+  
+  return 'Не удалось выполнить операцию. Попробуйте позже';
+};
+
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -34,7 +53,7 @@ export default function Auth() {
       if (error) {
         toast({
           title: 'Ошибка',
-          description: error.message,
+          description: getAuthErrorMessage(error),
           variant: 'destructive',
         });
       } else {

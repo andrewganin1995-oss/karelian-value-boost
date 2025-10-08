@@ -47,9 +47,9 @@ export default function Admin() {
       .select('role')
       .eq('user_id', user.id)
       .eq('role', 'admin')
-      .single();
+      .maybeSingle();
 
-    if (!error && data) {
+    if (data && !error) {
       setIsAdmin(true);
     } else {
       setIsAdmin(false);
