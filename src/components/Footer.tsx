@@ -4,9 +4,9 @@ const Footer = () => {
   return (
       <footer className="bg-card border-t border-border">
         <div className="container max-w-6xl mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 justify-items-start">
             {/* Контакты */}
-            <div className="space-y-4">
+            <div className="space-y-4 w-full">
               <h3 className="text-xl font-semibold text-foreground">Контакты</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-muted-foreground">
@@ -38,8 +38,9 @@ const Footer = () => {
               </div>
             </div>
             
+            
             {/* Режим работы */}
-            <div className="space-y-4">
+            <div className="space-y-4 w-full">
               <h3 className="text-xl font-semibold text-foreground">Режим работы</h3>
               <div className="space-y-3">
                 <div className="flex items-start space-x-3 text-muted-foreground">
@@ -53,8 +54,9 @@ const Footer = () => {
               </div>
             </div>
 
+            
             {/* О компании */}
-            <div className="space-y-4">
+            <div className="space-y-4 w-full">
               <h3 className="text-xl font-semibold text-foreground">О компании</h3>
               <div className="space-y-2 text-muted-foreground text-sm">
                 <p>Профессиональная оценка недвижимости в Карелии</p>
