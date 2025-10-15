@@ -107,7 +107,7 @@ const PriceList = () => {
 
         <div className="mt-8 bg-primary/10 p-6 rounded-lg">
           <p className="text-lg font-semibold text-center mb-2">
-            Цена заключения по оценке для всех услуг — 1 000 ₽
+            Заключение о рыночной стоимости квартиры — 1 000 ₽
           </p>
           <p className="text-sm text-muted-foreground text-center">
             * Указанные цены являются базовыми. Итоговая стоимость может варьироваться в зависимости от сложности объекта

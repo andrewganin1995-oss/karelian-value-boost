@@ -59,9 +59,24 @@ const Footer = () => {
             <div className="space-y-4 w-full">
               <h3 className="text-xl font-semibold text-foreground">О компании</h3>
               <div className="space-y-2 text-muted-foreground text-sm">
-                <p>Профессиональная оценка недвижимости в Карелии</p>
-                <p>Более 15 лет опыта</p>
-                <p>Аккредитация в крупнейших банках</p>
+                <p 
+                  className="cursor-pointer hover:text-primary transition-colors"
+                  onClick={() => window.open("/1.jpg", "_blank")}
+                >
+                  Профессиональная оценка недвижимости в Карелии
+                </p>
+                <p 
+                  className="cursor-pointer hover:text-primary transition-colors"
+                  onClick={() => window.open("/2.jpg", "_blank")}
+                >
+                  Более 15 лет опыта
+                </p>
+                <p 
+                  className="cursor-pointer hover:text-primary transition-colors"
+                  onClick={() => window.open("/3.jpg", "_blank")}
+                >
+                  Аккредитация в крупнейших банках
+                </p>
               </div>
             </div>
             
