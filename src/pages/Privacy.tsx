@@ -1,13 +1,24 @@
 import { useEffect } from "react";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Footer from "@/components/Footer";
 
 const Privacy = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <div className="min-h-screen bg-background">
+      <button
+        onClick={() => navigate("/")}
+        className="fixed top-6 left-6 p-3 bg-card hover:bg-accent rounded-full shadow-lg transition-colors z-50 border border-border"
+        aria-label="Вернуться на главную"
+      >
+        <ArrowLeft className="w-6 h-6 text-foreground" />
+      </button>
       <main className="container mx-auto px-4 py-12 max-w-4xl">
         <h1 className="text-4xl font-bold mb-8 text-foreground">
           Политика конфиденциальности
