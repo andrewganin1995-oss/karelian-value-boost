@@ -88,7 +88,7 @@ const Footer = () => {
                 © 2024 Оценщик недвижимости Карелия. Все права защищены.
               </div>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs sm:text-sm">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
                   Политика конфиденциальности
                 </a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
