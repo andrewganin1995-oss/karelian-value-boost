@@ -13,4 +13,10 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://appraisal-karelia.ru/sitemap.xml
+Sitemap: https://appraiserptz.ru/sitemap.xml
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 0
+
+Host: appraiserptz.ru
