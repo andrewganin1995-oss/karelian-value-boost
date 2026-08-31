@@ -1,4 +1,4 @@
-import { Percent, Users, Clock, Gift, TrendingUp, Star } from "lucide-react";
+import { Users, Gift, TrendingUp, Star } from "lucide-react";
 
 const DiscountSection = () => {
   const discounts = [
@@ -19,18 +19,6 @@ const DiscountSection = () => {
       title: "Льготные категории (пенсионеры, молодые семьи с ипотекой)",
       discount: "скидка 5%",
       description: "Социальная поддержка для льготных категорий граждан"
-    },
-    {
-      icon: Percent,
-      title: "Сезонные акции",
-      discount: "до 5%",
-      description: "Ограничено по времени, следите за нашими предложениями"
-    },
-    {
-      icon: Clock,
-      title: "Срочность",
-      discount: "надбавка +20–30%",
-      description: "При выполнении в ускоренные сроки (1-2 дня)"
     },
     {
       icon: TrendingUp,
