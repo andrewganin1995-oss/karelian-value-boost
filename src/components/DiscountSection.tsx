@@ -21,18 +21,6 @@ const DiscountSection = () => {
       description: "Социальная поддержка для льготных категорий граждан"
     },
     {
-      icon: Percent,
-      title: "Сезонные акции",
-      discount: "до 5%",
-      description: "Ограничено по времени, следите за нашими предложениями"
-    },
-    {
-      icon: Clock,
-      title: "Срочность",
-      discount: "надбавка +20–30%",
-      description: "При выполнении в ускоренные сроки (1-2 дня)"
-    },
-    {
       icon: TrendingUp,
       title: "Приведи друга",
       discount: "скидка 10%",
