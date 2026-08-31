@@ -71,7 +71,7 @@ const Footer = () => {
           <div className="border-t border-border mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 col-span-full">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-center md:text-left">
               <div className="text-muted-foreground text-xs sm:text-sm">
-                © 2024 Оценщик недвижимости Карелия. Все права защищены.
+                © 2026 Оценщик недвижимости Карелия. Все права защищены.
               </div>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 text-xs sm:text-sm">
                 <a href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
