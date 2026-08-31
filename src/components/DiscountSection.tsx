@@ -1,4 +1,4 @@
-import { Percent, Users, Clock, Gift, TrendingUp, Star } from "lucide-react";
+import { Users, Gift, TrendingUp, Star } from "lucide-react";
 
 const DiscountSection = () => {
   const discounts = [
